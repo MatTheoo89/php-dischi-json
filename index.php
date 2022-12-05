@@ -1,15 +1,3 @@
-<?php
-    // Importo il db come stringa dal DB
-    $albumsString = file_get_contents('./dischi.json');
-
-    //var_dump($albumsString);
-    
-    // decodifico la stringa in array associativo
-    $albums = json_decode($albumsString, true);
-    
-    var_dump($albums);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- VueJs -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
     <link rel="stylesheet" href="./css/style.css">
     <title>PHP Dischi JSON</title>
 </head>
@@ -36,16 +25,16 @@
             <div class="container">
                 <div class="row">
                     <div
+                    v-for="(album, i) in albums" :key="i"
                     class="col-4 p-4">
-                    <!-- v-for di dischi -->
                         <div class="my-card p-4">
-                            <div class="image mb-3">
-                                <img src="https://images-na.ssl-images-amazon.com/images/I/51sBr4IWDwL.jpg" alt="">
+                            <div class="image col-10 offset-1 mb-3">
+                                <img :src="album.poster" :alt="album.title">
                             </div>
                             <div class="info-text text-center">
-                                <h4>Album</h4>
-                                <span>artista</span>
-                                <h5>anno</h5>
+                                <h5>{{album.title}}</h5>
+                                <span class="album">{{album.author}}</span>
+                                <h6>{{album.year}}</h6>
                             </div>
                         </div>
                     </div>
