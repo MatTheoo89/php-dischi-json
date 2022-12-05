@@ -1,3 +1,15 @@
+<?php
+    // Importo il db come stringa dal DB
+    $albumsString = file_get_contents('./dischi.json');
+
+    //var_dump($albumsString);
+    
+    // decodifico la stringa in array associativo
+    $albums = json_decode($albumsString, true);
+    
+    var_dump($albums);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +40,7 @@
                     <!-- v-for di dischi -->
                         <div class="my-card p-4">
                             <div class="image mb-3">
-                                <img src="https://images-na.ssl-images-amazon.com/images/I/51sBr4IWDwL. jpg" alt="">
+                                <img src="https://images-na.ssl-images-amazon.com/images/I/51sBr4IWDwL.jpg" alt="">
                             </div>
                             <div class="info-text text-center">
                                 <h4>Album</h4>
@@ -41,5 +53,7 @@
             </div>
         </main>
     </div>
+
+    <script src="./js/main.js"></script>
 </body>
 </html>
