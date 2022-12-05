@@ -22,6 +22,10 @@ header{
     border-radius: 10px;
 }
 
+.my-card:hover{
+    cursor: pointer;
+}
+
 span.album{
     font-size: .8rem;
     margin-bottom: 10px;

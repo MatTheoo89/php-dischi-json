@@ -5,7 +5,9 @@ createApp({
         return{
             apiUrl: 'server.php',
             albums: [],
+            details: [],
             activeIndex: null,
+            isHover: false,
 
         }
     },
@@ -18,8 +20,14 @@ createApp({
         },
         getDetails(index){
             this.activeIndex = index;
-            //console.log(this.activeIndex);
-        }
+            this.isHover = true;
+            axios.get(this.apiUrl, {params:{
+                albumIndex:index}}
+                ).then(result => {
+                    this.details = result.data
+                    console.log(result.data);
+                })
+        },
     },
     mounted(){
         console.log('MONTATA');
