@@ -22,12 +22,15 @@
         </header>
 
         <main>
+
             <div class="container">
+
                 <div class="row">
+
                     <div
                     v-for="(album, i) in albums" :key="i"
                     class="col-4 p-4">
-                        <div class="my-card p-4">
+                        <div @click="getDetails(i)" class="my-card p-4">
                             <div class="image col-10 offset-1 mb-3">
                                 <img :src="album.poster" :alt="album.title">
                             </div>
@@ -38,6 +41,29 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="row details p-3 d-flex justify-content-center d-none">
+
+                    <div class="details d-flex align-items-center">
+
+                        <div class="col-6">
+                        
+                            <div class="image">
+                                <img src="https://images-na.ssl-images-amazon.com/images/I/71g40mlbinL._SX355_.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="details">
+                                <h4 class="mb-4">Titolo canzone: <span>titolo</span></h4>
+                                <h4 class="mb-4">Artista: <span>Artista</span></h4>
+                                <h4 class="mb-4">Anno: <span>XXXX</span></h4>
+                                <h4 class="mb-4">Genere: <span>XXXXXX</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-danger">close</button>
                 </div>
             </div>
         </main>

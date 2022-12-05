@@ -5,6 +5,7 @@ createApp({
         return{
             apiUrl: 'server.php',
             albums: [],
+            activeIndex: null,
 
         }
     },
@@ -15,6 +16,10 @@ createApp({
                 this.albums = result.data;
             })
         },
+        getDetails(index){
+            this.activeIndex = index;
+            //console.log(this.activeIndex);
+        }
     },
     mounted(){
         console.log('MONTATA');
